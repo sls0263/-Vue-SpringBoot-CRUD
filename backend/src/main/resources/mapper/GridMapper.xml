@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="GridMapper">
+	<select id="selGridTest" resultType="Map">
+		SELECT '0001' AS ProductID
+		     , 'test' AS ProductName
+		     , '10000' AS UnitPrice
+		     , '1' AS UnitsInStock
+		     , '1' AS Discontinued
+		  FROM DUAL
+	</select>
+	
+	<select id="selGridList" resultType="Map" parameterType="String">
+		SELECT 1
+		  FROM C##ECODEV.EXAM_DEPLOY_MST
+		 WHERE 1=1
+		   AND DEPLOY_NO = #{deployNo}
+	</select>
+
+	<select id="selEcoGridList" resultType="Map" parameterType="Map">
+		SELECT DEPLOY_NO
+		     , DEPLOY_NM
+		     , ENTR_DT
+		  FROM C##ECODEV.EXAM_DEPLOY_MST
+		 WHERE 1=1
+		   AND (DEPLOY_NO = #{DEPLOY_NO} OR #{DEPLOY_NO} IS NULL)
+		   AND DEPLOY_NM LIKE '%'||#{DEPLOY_NM}||'%'
+		   AND (HP_NO = #{HP_NO} OR #{HP_NO} IS NULL)
+		   AND (ENTR_DT = #{ENTR_DT} OR #{ENTR_DT} IS NULL)
+		   AND (WRK_TYP_CD = #{WRK_TYP_CD} OR #{WRK_TYP_CD} IS NULL)
+		   AND (DEL_YN = #{DEL_YN} OR #{DEL_YN} IS NULL)
+		 ORDER BY DEPLOY_NO
+	</select>
+	
+	<select id="selEcoGridDetail" resultType="Map" parameterType="String">
+		SELECT DEPLOY_NO
+        	 , DEPLOY_NM
+        	 , HP_NO
+        	 , EMAIL
+        	 , TO_CHAR(TO_DATE(ENTR_DT, 'YYYYMMDD'), 'YYYY-MM-DD') AS ENTR_DT
+        	 , TO_CHAR(TO_DATE(RETR_DT, 'YYYYMMDD'), 'YYYY-MM-DD') AS RETR_DT
+        	 , WRK_TYP_CD
+        	 , DEL_YN
+        	 , IP_IPUT_PRSN
+        	 , DNT_IPUT
+        	 , ID_CHG_PRSN
+        	 , IP_CHG_PRSN
+		  FROM C##ECODEV.EXAM_DEPLOY_MST
+		 WHERE 1=1
+		   AND DEPLOY_NO = #{rowId}
+	</select>
+	
+	<select id="getSequenceNumber" resultType="java.lang.Integer">
+		SELECT TO_CHAR(SYSDATE, 'YYYY') || LPAD(NVL(MAX(TO_NUMBER(SUBSTR(DEPLOY_NO, 6, 4))), 0) + 1, 4, '0') AS DEPLOY_NO
+		  FROM C##ECODEV.EXAM_DEPLOY_MST
+		 WHERE DEPLOY_NO LIKE 'E' || TO_CHAR(SYSDATE, 'YYYY') || '%'
+	</select>
+	
+	<update id="saveEcoGrid" parameterType="Map">
+		UPDATE C##ECODEV.EXAM_DEPLOY_MST
+		   SET DEPLOY_NM = #{DEPLOY_NM}
+		     , ENTR_DT = REPLACE(SUBSTR(#{ENTR_DT}, 1, 10),'-','')
+		     , RETR_DT = REPLACE(SUBSTR(#{RETR_DT}, 1, 10),'-','')
+		     , HP_NO = #{HP_NO}
+		     , EMAIL = #{EMAIL}
+		     , WRK_TYP_CD = #{WRK_TYP_CD}
+		     , DEL_YN = #{DEL_YN}
+		     , ID_CHG_PRSN = 'admin'
+		     , DNT_CHG = SYSDATE
+		 WHERE DEPLOY_NO = #{DEPLOY_NO}
+	</update>
+	
+	<insert id="insEcoGrid" parameterType="Map">
+		INSERT INTO C##ECODEV.EXAM_DEPLOY_MST
+		     (
+		       DEPLOY_NO     -- 직원번호
+			 , DEPLOY_NM     -- 직원이름
+			 , HP_NO         -- 휴대폰번호
+			 , EMAIL         -- 이메일
+			 , ENTR_DT       -- 입사일자
+			 , RETR_DT       -- 퇴사일자
+			 , WRK_TYP_CD    -- 근무형태코드(EX001)
+			 , DEL_YN        -- 삭제여부
+			 , IP_IPUT_PRSN  -- 아이디생성자
+			 , ID_CHG_PRSN   -- 아이디변경자
+		     )
+		VALUES
+		     (
+		       #{DEPLOY_NO}
+		     , #{DEPLOY_NM}
+		     , #{HP_NO}
+		     , #{EMAIL}
+		     , REPLACE(SUBSTR(#{ENTR_DT}, 1, 10),'-','')
+		     , REPLACE(SUBSTR(#{RETR_DT}, 1, 10),'-','')
+		     , #{WRK_TYP_CD}
+		     , #{DEL_YN}
+		     , 'admin'
+		     , 'admin'
+		     )
+	</insert>
+	
+	<delete id="delEcoGridDetail" parameterType="String">
+		DELETE FROM C##ECODEV.EXAM_DEPLOY_MST
+   		 WHERE DEPLOY_NO = #{rowId}
+	</delete>
+
+</mapper>

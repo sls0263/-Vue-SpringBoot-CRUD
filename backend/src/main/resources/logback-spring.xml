@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+    <!-- Appenders -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <Pattern>%d %5p [%c] %m%n</Pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%logger{36}] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="console-infolog" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <Pattern>%d %5p %m%n</Pattern>
+        </encoder>
+    </appender>
+
+    <!-- Logger -->
+    <!-- Logger for specific packages -->
+	<logger name="org.springframework" level="INFO" additivity="false">
+	    <appender-ref ref="console" />
+	</logger>
+	
+	<logger name="org.hibernate" level="INFO" additivity="false">
+	    <appender-ref ref="console" />
+	</logger>
+	<logger name="com.zaxxer.hikari.pool" level="INFO" />
+	
+	<!-- Logger for specific classes -->
+	<logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" level="INFO" additivity="false">
+	    <appender-ref ref="console" />
+	</logger>
+	
+	<logger name="org.hibernate.stat.internal.StatisticsInitiator" level="INFO" additivity="false">
+	    <appender-ref ref="console" />
+	</logger>
+	
+	<logger name="org.mybatis.spring.SqlSessionUtils" level="INFO" additivity="false">
+	    <appender-ref ref="console" />
+	</logger>
+	
+	<logger name="org.springframework.jdbc.datasource.DataSourceUtils" level="INFO" additivity="false">
+	    <appender-ref ref="console" />
+	</logger>
+	
+	<logger name="org.mybatis.spring.transaction.SpringManagedTransaction" level="INFO" additivity="false">
+	    <appender-ref ref="console" />
+	</logger>
+	
+	<logger name="org.springframework" level="ERROR" additivity="false">
+    <appender-ref ref="console" />
+	</logger>
+	
+	<logger name="org.apache.catalina.core.ContainerBase.[Tomcat-3].[localhost].[/]" level="ERROR" additivity="false">
+	    <appender-ref ref="console" />
+	</logger>
+
+    <!-- Root Logger -->
+    <root level="debug">
+        <appender-ref ref="console" />
+    </root>
+</configuration>
