@@ -3,6 +3,7 @@
 <p>vue 화면 위치: kendoExample/src/components/ecoDev/ExamGrid.vue</p>
 <p>그 외: Kendo UI 테스트 중</p>
 <p>백앤드 파일 위치: backend/src/main/java/com/backend/vue/grid</p>
+<p>mapper 파일 위치: backend/src/main/resources/mapper/GridMapper.xml</p>
 <br/>
 <h5>화면 설명</h5>
 <p>- 화면오픈시 바로 조회</p>
