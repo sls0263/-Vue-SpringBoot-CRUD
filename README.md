@@ -1,5 +1,5 @@
 <h2>[Vue + SpringBoot] CRUD</h2>
-<img src="https://github.com/sls0263/Vue-SpringBoot-CRUD/assets/107562213/48b1cf8f-e460-4f82-81b2-de8cc0860a05">
+<img src="https://github.com/sls0263/Vue-SpringBoot-CRUD/assets/107562213/3b92dac0-1790-4892-ba80-bc74c3fd6dfd">
 <p>vue 화면 위치: kendoExample/src/components/ecoDev/ExamGrid.vue</p>
 <p>그 외: Kendo UI 테스트 중</p>
 <p>백앤드 파일 위치: backend/src/main/java/com/backend/vue/grid</p>
