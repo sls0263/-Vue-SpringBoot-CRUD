@@ -62,7 +62,7 @@ import Datepicker from 'vue3-datepicker'
       <tbody>
         <!-- computed 속성값 데이터 사용해서 데이터 표시 -->
         <tr v-for="(user,idx) in displayedItems" :key="user.DEPLOY_NO" @click="selectRow(user.DEPLOY_NO)">
-          <td>{{ idx+1 }}</td> <!--item.no-->
+          <td>{{ idx+1 }}</td>
           <td>{{ user.DEPLOY_NO }}</td>
           <td>{{ user.DEPLOY_NM }}</td>
           <td>{{ user.ENTR_DT }}</td>
@@ -86,7 +86,7 @@ import Datepicker from 'vue3-datepicker'
       </thead>
       <tbody>
         <tr v-for="user in userDetail" :key="user.DEPLOY_NO">
-          <th>휴대폰번호</th> <!--item.no-->
+          <th>휴대폰번호</th>
           <td><input type="text" v-model="user.HP_NO" placeholder="ex)01012345678"/></td>
           <th>이메일</th>
           <td><input type="text" v-model="user.EMAIL" placeholder="ex)abc123@gmail.com"/></td>
@@ -131,13 +131,13 @@ import Datepicker from 'vue3-datepicker'
               </select></td>
         </tr>
         <tr v-for="user in userDetail" :key="user.DEPLOY_NO">
-          <th>등록자</th> <!--item.no-->
+          <th>등록자</th>
           <td>{{ user.IP_IPUT_PRSN }}</td>
           <th>등록일시</th>
           <td>{{ user.DNT_IPUT }}</td>
         </tr>
         <tr v-for="user in userDetail" :key="user.DEPLOY_NO">
-          <th>수정자</th> <!--item.no-->
+          <th>수정자</th>
           <td>{{ user.ID_CHG_PRSN }}</td>
           <th>수정일시</th>
           <td>{{ user.IP_CHG_PRSN }}</td>
@@ -233,6 +233,8 @@ export default {
       axios.post(`/grid/selEcoGridDetail`, {rowId})
         .then((response) => {
           this.userDetail = response.data;
+
+          // 직원 정보 테이블 데이터 확인 필요 시 주석 제거거
           //console.log("this.userDetail = "+JSON.stringify(this.userDetail,null,2));
 
           //입사일
