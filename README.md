@@ -5,7 +5,7 @@
 <p>백앤드 파일 위치: backend/src/main/java/com/backend/vue/grid</p>
 <p>mapper 파일 위치: backend/src/main/resources/mapper/GridMapper.xml</p>
 <br/>
-<h5>화면 설명</h5>
+<h3>화면 설명</h3>
 <p>- 화면오픈시 바로 조회</p>
 <p>- 조회조건에 따라 직원목록이 다르게 조회됨</p>
 <p>- 선택 컬럼의 체크박스가 체크된 것만 삭제(여러개 선택 시 여러개 삭제)</p>
