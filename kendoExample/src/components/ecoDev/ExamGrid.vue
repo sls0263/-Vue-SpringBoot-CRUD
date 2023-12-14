@@ -146,7 +146,6 @@ import Datepicker from 'vue3-datepicker'
     </table>
   </div>
   </div>
-    <!-- 추가 필드들 -->
 </template>
   
 <script>
