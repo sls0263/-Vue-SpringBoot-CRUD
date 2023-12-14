@@ -22,9 +22,9 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/grid")
 public class GridController {
 	@Autowired   
-	//MyBatisGridService mmService;
 	GridService gridService;
-	
+
+	//테스트 용
 	@RequestMapping(value="/test")
 	public List<Map<String, Object>> test() {
         return gridService.selGridTest();
