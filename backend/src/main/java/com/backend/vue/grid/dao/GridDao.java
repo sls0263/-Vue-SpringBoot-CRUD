@@ -54,13 +54,12 @@ public class GridDao {
                 }
             });
 
-        	gridMap.put("DEPLOY_NO", "E" + String.valueOf(seq));
-
             List<Map<String, Object>> gridList = sqlSessionTemplate.selectList("GridMapper.selGridList", deployNo);
 
             if (!gridList.isEmpty()) {
                 saveGrid = sqlSessionTemplate.update("GridMapper.saveEcoGrid", gridMap);
             } else {
+            	gridMap.put("DEPLOY_NO", "E" + String.valueOf(seq));
                 saveGrid = sqlSessionTemplate.insert("GridMapper.insEcoGrid", gridMap);
             }
         }

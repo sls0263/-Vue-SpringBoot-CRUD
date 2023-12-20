@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="ComboMapper">
+	<select id="selCombo" resultType="Map" parameterType="String">
+		SELECT COMM_CD
+		     , COMM_NM
+		  FROM C##ECODEV.COMM_CD_DETAIL
+		 WHERE 1=1
+		   AND USE_YN = 'Y'
+		   AND DEL_YN = 'N'
+		   AND GROUP_CD = #{groupCd}
+		 ORDER BY VIEW_SEQ
+	</select>
+</mapper>

@@ -8,7 +8,7 @@ import Form from "../components/Form";
 import Chart from "../components/Chart";
 import NotFound from "../components/NotFound";
 
-import ExamGrid from "../components/ecoDev/ExamGrid";
+import ExamGrid from "../view/ExamGrid";
 
 const routes = [
   {

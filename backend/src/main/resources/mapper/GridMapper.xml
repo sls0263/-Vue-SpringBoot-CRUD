@@ -60,17 +60,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<update id="saveEcoGrid" parameterType="Map">
-		UPDATE C##ECODEV.EXAM_DEPLOY_MST
-		   SET DEPLOY_NM = #{DEPLOY_NM}
-		     , ENTR_DT = REPLACE(SUBSTR(#{ENTR_DT}, 1, 10),'-','')
-		     , RETR_DT = REPLACE(SUBSTR(#{RETR_DT}, 1, 10),'-','')
-		     , HP_NO = #{HP_NO}
-		     , EMAIL = #{EMAIL}
-		     , WRK_TYP_CD = #{WRK_TYP_CD}
-		     , DEL_YN = #{DEL_YN}
-		     , ID_CHG_PRSN = 'admin'
-		     , DNT_CHG = SYSDATE
-		 WHERE DEPLOY_NO = #{DEPLOY_NO}
+	  UPDATE C##ECODEV.EXAM_DEPLOY_MST
+	     SET DEPLOY_NM = #{DEPLOY_NM}
+		   , ENTR_DT = REPLACE(SUBSTR(#{ENTR_DT}, 1, 10), '-', '')
+		     <if test="RETR_DT != null">
+		       , RETR_DT = REPLACE(SUBSTR(#{RETR_DT}, 1, 10), '-', '')
+		     </if>
+		     <if test="HP_NO != null">
+		       , HP_NO = #{HP_NO}
+		     </if>
+		     <if test="EMAIL != null">
+		       , EMAIL = #{EMAIL}
+		     </if>
+		     <if test="WRK_TYP_CD != null">
+		       , WRK_TYP_CD = #{WRK_TYP_CD}
+		     </if>
+		     <if test="DEL_YN != null">
+		       , DEL_YN = #{DEL_YN}
+		     </if>
+		   , ID_CHG_PRSN = 'admin'
+		   , DNT_CHG = SYSDATE
+	   WHERE DEPLOY_NO = #{DEPLOY_NO}
 	</update>
 	
 	<insert id="insEcoGrid" parameterType="Map">
@@ -78,12 +88,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		     (
 		       DEPLOY_NO     -- 직원번호
 			 , DEPLOY_NM     -- 직원이름
+			 <if test="HP_NO != null">
 			 , HP_NO         -- 휴대폰번호
-			 , EMAIL         -- 이메일
-			 , ENTR_DT       -- 입사일자
-			 , RETR_DT       -- 퇴사일자
-			 , WRK_TYP_CD    -- 근무형태코드(EX001)
-			 , DEL_YN        -- 삭제여부
+			 </if>
+		     <if test="EMAIL != null">
+		     , EMAIL         -- 이메일
+		     </if>
+		     , ENTR_DT       -- 입사일자
+		     <if test="RETR_DT != null">
+		     , RETR_DT       -- 퇴사일자
+		     </if>
+		     <if test="WRK_TYP_CD != null">
+		     , WRK_TYP_CD    -- 근무형태코드(EX001)
+		     </if>
+		     <if test="DEL_YN != null">
+		     , DEL_YN        -- 삭제여부
+		     </if>
 			 , IP_IPUT_PRSN  -- 아이디생성자
 			 , ID_CHG_PRSN   -- 아이디변경자
 		     )
@@ -91,12 +111,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		     (
 		       #{DEPLOY_NO}
 		     , #{DEPLOY_NM}
+		     <if test="HP_NO != null">
 		     , #{HP_NO}
+		     </if>
+		     <if test="EMAIL != null">
 		     , #{EMAIL}
-		     , REPLACE(SUBSTR(#{ENTR_DT}, 1, 10),'-','')
-		     , REPLACE(SUBSTR(#{RETR_DT}, 1, 10),'-','')
+		     </if>
+		     , REPLACE(SUBSTR(#{ENTR_DT}, 1, 10), '-', '')
+		     <if test="RETR_DT != null">
+		     , REPLACE(SUBSTR(#{RETR_DT}, 1, 10), '-', '')
+		     </if>
+		     <if test="WRK_TYP_CD != null">
 		     , #{WRK_TYP_CD}
+		     </if>
+		     <if test="DEL_YN != null">
 		     , #{DEL_YN}
+		     </if>
 		     , 'admin'
 		     , 'admin'
 		     )
