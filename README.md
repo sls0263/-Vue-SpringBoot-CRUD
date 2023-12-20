@@ -1,5 +1,5 @@
 <h2>[Vue + SpringBoot] 직원정보 페이지 CRUD</h2>
-<img src="https://github.com/sls0263/Vue-SpringBoot-CRUD/assets/107562213/3b92dac0-1790-4892-ba80-bc74c3fd6dfd">
+<img src="https://github.com/sls0263/Vue-SpringBoot-CRUD/assets/107562213/6e5676f1-6a62-4bbd-85a9-7337f1d26c3b">
 <p>vue 화면 위치: kendoExample/src/view</p>
 <p>vue 공통코드 위치 : kendoExample/src/common</p>
 <p>그 외: Kendo UI 테스트 중</p>
