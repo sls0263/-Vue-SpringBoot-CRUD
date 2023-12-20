@@ -5,7 +5,7 @@ import Form from "../components/Form";
 
 import NotFound from "../components/NotFound";
 
-import ExamGrid from "../view/ExamGrid";
+import ExamGrid from "../view/EmployInfo";
 
 const routes = [
   {
@@ -24,8 +24,8 @@ const routes = [
     component: NotFound
   }
   ,{
-    path: "/ExamGrid",
-    name: "ExamGrid",
+    path: "/EmployInfo",
+    name: "EmployInfo",
     component: ExamGrid
   }
 ];

@@ -5,7 +5,7 @@
                 <div class="d-flex">
                     <div class='project-name d-flex'>
                         <span class="mx-0 my-auto logo">
-                            {{projectName}}
+                            VueExamProject
                         </span>
                     </div>
                 </div>

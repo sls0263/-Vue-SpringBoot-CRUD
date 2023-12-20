@@ -18,9 +18,9 @@ export default {
             }
           }
           ,{
-            text: "ExamGrid",
+            text: "EmployInfo",
             data: {
-              path: "/ExamGrid"
+              path: "/EmployInfo"
             }
           }
         ]
