@@ -18,21 +18,9 @@ export default {
             }
           }
           ,{
-            text: "Grid",
+            text: "ExamGrid",
             data: {
-              path: "/Grid"
-            }
-          }
-          ,{
-            text: "Form",
-            data: {
-              path: "/Form"
-            }
-          }
-          ,{
-            text: "Chart",
-            data: {
-              path: "/Chart"
+              path: "/ExamGrid"
             }
           }
         ]
