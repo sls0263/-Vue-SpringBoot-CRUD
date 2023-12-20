@@ -3,6 +3,7 @@ import Datepicker from 'vue3-datepicker'
 </script>
 
 <template>
+  <div style="max-width: 1440px; min-width: 720px; margin: 0 auto;">
   <div class="buttons-container">
     <!-- 조회, 신규, 삭제, 저장 버튼 -->
     <button @click="selEmployee(this.selUser)">조회</button>
@@ -11,7 +12,7 @@ import Datepicker from 'vue3-datepicker'
     <button @click="saveEmployee(this.userDetail)">저장</button>
   </div>
   <!-- 조회조건 -->
-  <div>
+  <div style="width: 100%;">
     <table class="table" id="employeeInfo">
       <thead>
           <th>직원번호</th>
@@ -59,14 +60,14 @@ import Datepicker from 'vue3-datepicker'
           <th>삭제</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody style="text-align: center;">
         <!-- computed 속성값 데이터 사용해서 데이터 표시 -->
         <tr v-for="(user,idx) in displayedItems" :key="user.DEPLOY_NO" @click="selectRow(user.DEPLOY_NO)">
           <td>{{ idx+1 }}</td>
           <td>{{ user.DEPLOY_NO }}</td>
           <td>{{ user.DEPLOY_NM }}</td>
           <td>{{ user.ENTR_DT }}</td>
-          <td><input type="checkbox" v-model="user.selected" /></td>
+          <td style="text-align: center;"><input type="checkbox" v-model="user.selected" /></td>
         </tr>
       </tbody>
     </table>
@@ -144,6 +145,7 @@ import Datepicker from 'vue3-datepicker'
     </table>
   </div>
   </div>
+</div>
 </template>
   
 <script>
@@ -176,9 +178,6 @@ export default {
       selWrkTyp: [],      // 근무형태
       selDelYnD: [],      // 직원정보의 삭제여부
       selWrkTypD: [],     // 직원정보의 근무형태
-
-      picked: ref(new Date()),
-      picked_RETR: ref(null),
     };
   },
   components: {
@@ -214,7 +213,7 @@ export default {
         .then((response) => {
           this.userDetail = response.data;
 
-          // 직원 정보 테이블 데이터 확인 필요 시 주석 제거거
+          // 직원 정보 테이블 데이터 확인 필요 시 주석 제거
           //console.log("this.userDetail = "+JSON.stringify(this.userDetail,null,2));
 
           // 근무형태, 삭제여부 데이터 없을 시 ''처리
@@ -365,8 +364,10 @@ export default {
 </script>
 
 <style>
-  th {background-color: lightsteelblue;}
-  table {margin-left: auto; margin-right: auto; width: 100%;}
+  th {background-color: lightsteelblue; border: 1px solid rgb(214, 214, 214); text-align: center; padding: 7px;}
+  table {margin-left: auto; margin-right: auto; width: 100%; border: 1px solid rgb(192, 192, 192);}
+  tr {border: 1px solid rgb(192, 192, 192); padding: 7px;}
+  td {border: 1px solid rgb(192, 192, 192); padding: 7px;}
 /* 추가적인 스타일은 필요에 따라 적용합니다. */
 
   .buttons-container {
@@ -376,6 +377,10 @@ export default {
   }
 
   .buttons-container button {
-    margin-right: 10px; /* 버튼 간격 조절 */
+    margin-left: 10px; /* 버튼 간격 조절 */
+    border: 1px solid rgb(80, 80, 80);
+    border-radius: 5px;
   }
+
+  html {background-color: rgb(233, 233, 233);}
 </style>

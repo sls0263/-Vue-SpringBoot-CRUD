@@ -1,4 +1,5 @@
 <template>
+<div style="width: 1440px; margin: 0 auto;">
  <div class='container-fluid'>
             <div class="d-flex border-bottom py-2">
                 <div class="d-flex">
@@ -13,6 +14,7 @@
                 </div>
             </div>
         </div>
+    </div>
 </template>
 <script>
 import MenuNavContainer from "./MenuNavContainer"

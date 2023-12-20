@@ -19,16 +19,6 @@
                 </div>
                 <div class='col-6 components-list'>
                     <p>
-                    <img src="../assets/images/components.svg"  alt='components' /> 
-                        <!-- <a href="/Grid">그리드</a> -->
-                        <router-link to="/Grid">그리드</router-link>
-                    </p>
-                    <p>
-                        <img src="../assets/images/styles.svg" alt='styles' />
-                        <!-- <a href='http://localhost/Chart'>차트</a> -->
-                        <router-link to="/Chart">차트</router-link>
-                    </p>
-                    <p>
                         <img src="../assets/images/blogs.svg" alt='blogs' />
                         <!-- <a href='http://localhost/Form'>Form</a> -->
                         <router-link to="/Form">Form</router-link>
@@ -43,7 +33,6 @@
         </div>
 </template>
 <script>
-import grid from "../components/Grid";
 export default {
      data: function() {
         return {
