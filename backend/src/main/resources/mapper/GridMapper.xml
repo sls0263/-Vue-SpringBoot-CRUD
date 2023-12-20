@@ -60,37 +60,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<update id="saveEcoGrid" parameterType="Map">
-	  UPDATE C##ECODEV.EXAM_DEPLOY_MST
-	     SET DEPLOY_NM = #{DEPLOY_NM}
-		   , ENTR_DT = REPLACE(SUBSTR(#{ENTR_DT}, 1, 10), '-', '')
+		UPDATE C##ECODEV.EXAM_DEPLOY_MST
+		   SET DEPLOY_NM = #{DEPLOY_NM}
+		     , ENTR_DT = REPLACE(SUBSTR(#{ENTR_DT}, 1, 10), '-', '')
 		     <if test="RETR_DT != null">
-		       , RETR_DT = REPLACE(SUBSTR(#{RETR_DT}, 1, 10), '-', '')
+		     , RETR_DT = REPLACE(SUBSTR(#{RETR_DT}, 1, 10), '-', '')
 		     </if>
 		     <if test="HP_NO != null">
-		       , HP_NO = #{HP_NO}
+		     , HP_NO = #{HP_NO}
 		     </if>
 		     <if test="EMAIL != null">
-		       , EMAIL = #{EMAIL}
+		     , EMAIL = #{EMAIL}
 		     </if>
 		     <if test="WRK_TYP_CD != null">
-		       , WRK_TYP_CD = #{WRK_TYP_CD}
+		     , WRK_TYP_CD = #{WRK_TYP_CD}
 		     </if>
 		     <if test="DEL_YN != null">
-		       , DEL_YN = #{DEL_YN}
+		     , DEL_YN = #{DEL_YN}
 		     </if>
-		   , ID_CHG_PRSN = 'admin'
-		   , DNT_CHG = SYSDATE
-	   WHERE DEPLOY_NO = #{DEPLOY_NO}
+		     , ID_CHG_PRSN = 'admin'
+		     , DNT_CHG = SYSDATE
+		 WHERE DEPLOY_NO = #{DEPLOY_NO}
 	</update>
 	
 	<insert id="insEcoGrid" parameterType="Map">
 		INSERT INTO C##ECODEV.EXAM_DEPLOY_MST
 		     (
 		       DEPLOY_NO     -- 직원번호
-			 , DEPLOY_NM     -- 직원이름
-			 <if test="HP_NO != null">
-			 , HP_NO         -- 휴대폰번호
-			 </if>
+		     , DEPLOY_NM     -- 직원이름
+		     <if test="HP_NO != null">
+		     , HP_NO         -- 휴대폰번호
+		     </if>
 		     <if test="EMAIL != null">
 		     , EMAIL         -- 이메일
 		     </if>
@@ -104,8 +104,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		     <if test="DEL_YN != null">
 		     , DEL_YN        -- 삭제여부
 		     </if>
-			 , IP_IPUT_PRSN  -- 아이디생성자
-			 , ID_CHG_PRSN   -- 아이디변경자
+		     , IP_IPUT_PRSN  -- 아이디생성자
+		     , ID_CHG_PRSN   -- 아이디변경자
 		     )
 		VALUES
 		     (
