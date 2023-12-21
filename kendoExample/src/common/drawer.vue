@@ -135,7 +135,6 @@ export default {
     &__content {
         position: fixed;
         top: 0;
-        // 메뉴 오른쪽에 나오게 함
         left: 0px;
         bottom: 0;
         height: 100%;
