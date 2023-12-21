@@ -21,7 +21,7 @@
                     <p>
                         <img src="../assets/images/blogs.svg" alt='blogs' />
                         <!-- <a href='http://localhost/Form'>Form</a> -->
-                        <router-link to="/Form">Form</router-link>
+                        <router-link to="/menu">menu</router-link>
                     </p>
                     <p>
                         <img src="../assets/images/tutorials.svg" alt='tutorials' />

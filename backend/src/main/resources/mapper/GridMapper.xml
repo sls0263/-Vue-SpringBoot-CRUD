@@ -23,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selEcoGridList" resultType="Map" parameterType="Map">
 		SELECT DEPLOY_NO
 		     , DEPLOY_NM
-		     , ENTR_DT
+		     , TO_CHAR(TO_DATE(ENTR_DT, 'YYYYMMDD'), 'YYYY-MM-DD') AS ENTR_DT
 		  FROM C##ECODEV.EXAM_DEPLOY_MST
 		 WHERE 1=1
 		   AND (DEPLOY_NO = #{DEPLOY_NO} OR #{DEPLOY_NO} IS NULL)
@@ -45,9 +45,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         	 , WRK_TYP_CD
         	 , DEL_YN
         	 , IP_IPUT_PRSN
-        	 , DNT_IPUT
+        	 , TO_CHAR(DNT_IPUT, 'YYYY-MM-DD HH24:MI') AS DNT_IPUT
         	 , ID_CHG_PRSN
-        	 , IP_CHG_PRSN
+        	 , TO_CHAR(IP_CHG_PRSN, 'YYYY-MM-DD HH24:MI') AS IP_CHG_PRSN
 		  FROM C##ECODEV.EXAM_DEPLOY_MST
 		 WHERE 1=1
 		   AND DEPLOY_NO = #{rowId}

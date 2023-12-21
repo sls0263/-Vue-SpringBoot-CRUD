@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Home from "../components/Home";
 
-import Form from "../components/Form";
+import Form from "../common/menu";
 
 import NotFound from "../components/NotFound";
 
@@ -14,8 +14,8 @@ const routes = [
     component: Home
   }
   ,{
-    path: "/Form",
-    name: "Form",
+    path: "/menu",
+    name: "menu",
     component: Form
   }
   ,{

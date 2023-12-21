@@ -3,7 +3,7 @@ import Datepicker from 'vue3-datepicker'
 </script>
 
 <template>
-  <div style="max-width: 1440px; min-width: 720px; margin: 0 auto;">
+  <div style="max-width: 1440px; min-width: 1040px; margin: 0 auto;">
   <div class="buttons-container">
     <!-- 조회, 신규, 삭제, 저장 버튼 -->
     <button @click="selEmployee(this.selUser)">조회</button>
