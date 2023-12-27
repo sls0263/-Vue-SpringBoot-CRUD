@@ -7,7 +7,8 @@
 <br/>
 <h3>화면 설명</h3>
 <p>- 왼쪽 상단 햄버거 누르면 메뉴가 나옴</p>
+<img src="https://github.com/sls0263/Vue-SpringBoot-CRUD/assets/107562213/2a3d02c0-6a53-47bd-9e6a-135a9ccfe716">
 <p>- 메뉴는 로그인 했을 때 리스트가 나오고 로그인이 안되어 있을 땐 메뉴리스트가 비어있음</p>
+<img src="https://github.com/sls0263/Vue-SpringBoot-CRUD/assets/107562213/11c1a001-91a3-4e7e-af98-2836e12289da">
 <p>- 로그인을 누르면 로그인 팝업이 나옴</p>
 <p>- 단순한 메인화면임</p>
-<img src="https://github.com/sls0263/Vue-SpringBoot-CRUD/assets/107562213/2a3d02c0-6a53-47bd-9e6a-135a9ccfe716">
