@@ -4,7 +4,7 @@
       <div class="d-flex border-bottom py-2">
         <div class="d-flex justify-content-between flex-grow-1">
           <div>
-            <button @click="toggleDrawer">
+            <button @click="openDrawer">
               三
             </button>
           </div>
@@ -22,7 +22,7 @@
             </Drawer>
           </div>
           <div>
-            <button v-if="!isLoggedIn" @click="toggleLoginModal">
+            <button v-if="!isLoggedIn" @click="openLoginModal">
               로그인
             </button>
             <button v-else @click="logout">
@@ -131,22 +131,22 @@ export default {
           console.error('Logout failed', error);
         });
     },
-    toggleDrawer() {
+    openDrawer() {
       this.isDrawerOpen = !this.isDrawerOpen;
     },
     closeDrawer() {
       this.isDrawerOpen = false;
     },
-    toggleLoginModal() {
+    openLoginModal() {
       this.isLoginModalOpen = !this.isLoginModalOpen;
     },
     closeLoginModal() {
       this.isLoginModalOpen = false;
     },
-  mounted() {
-    this.selMenu();
+    mounted() {
+      this.selMenu();
+    },
   },
-},
 };
 </script>
 
