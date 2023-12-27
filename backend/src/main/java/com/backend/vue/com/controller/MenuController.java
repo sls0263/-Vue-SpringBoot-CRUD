@@ -25,7 +25,7 @@ public class MenuController {
 	//MyBatisGridService mmService;
 	MenuService menuService;
 	
-	@GetMapping(value= "/selMenu")
+	@PostMapping(value= "/selMenu")
 	public List<Map<String, Object>> selMenu() {
 		List<Map<String, Object>> result = menuService.selMenu();
         return result;

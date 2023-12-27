@@ -40,7 +40,7 @@ export default {
       maxWidth: {
         type: String,
         required: false,
-        default: "300px",
+        default: "350px",
       },
   
       // Transition Speed in Milliseconds
