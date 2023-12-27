@@ -1,4 +1,4 @@
-<h2>[Vue + SpringBoot] 직원정보 페이지 CRUD</h2>
+<h2>[Vue + SpringBoot] 관리자 페이지 </h2>
 <img src="https://github.com/sls0263/Vue-SpringBoot-CRUD/assets/107562213/7e343352-149f-4d5b-b956-82c89d8732c6">
 <p>vue 화면 위치: kendoExample/src/</p>
 <p>vue 공통코드 위치 : kendoExample/src/common</p>
