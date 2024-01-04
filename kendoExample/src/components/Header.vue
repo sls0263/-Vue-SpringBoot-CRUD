@@ -77,7 +77,7 @@ export default {
   methods: {
     selMenu() {
       // 메뉴 조회
-      axios.post(`/com/selMenu`)
+      axios.get(`/com/selMenu`)
         .then(response => {
           this.menus = this.convertData(response.data);
         })

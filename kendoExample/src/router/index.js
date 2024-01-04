@@ -2,19 +2,14 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from "../components/Home";
 
 import Form from "../common/menu";
-// import Login from "../common/login";
+import MenuMgmt from "../view/MenuMgmt";
 
 import NotFound from "../components/NotFound";
 
-import ExamGrid from "../view/EmployInfo";
+import EmployInfo from "../view/EmployInfo";
 
 const routes = [
-  // {
-  //   path: "/",
-  //   name: "Login",
-  //   component: Login
-  // }
-  ,{
+  {
     path: "/",
     name: "Home",
     component: Home
@@ -32,7 +27,12 @@ const routes = [
   ,{
     path: "/EmployInfo",
     name: "EmployInfo",
-    component: ExamGrid
+    component: EmployInfo
+  }
+  ,{
+    path: "/MenuMgmt",
+    name: "MenuMgmt",
+    component: MenuMgmt
   }
 ];
 

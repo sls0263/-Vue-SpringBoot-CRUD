@@ -26,7 +26,7 @@
                     <p>
                         <img src="../assets/images/tutorials.svg" alt='tutorials' />
                         <!-- <a href='http://localhost/'>Home</a> -->
-                        <router-link to="/EmployInfo">EmployInfo</router-link>
+                        <router-link to="/MenuMgmt">MenuMgmt</router-link>
                     </p>
                 </div>
             </div>
